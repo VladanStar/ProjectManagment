@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "myfirebase-40fae": {
+      "hosting": {
+        "firebase-angular": [
+          "myfirebase-40fae"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "myfirebase-40fae"
+  }
+}
