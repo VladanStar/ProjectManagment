@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'standalone-components'`, () => {
+  it(`should have as title 'firebase-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('standalone-components');
+    expect(app.title).toEqual('firebase-angular');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('standalone-components app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('firebase-angular app is running!');
   });
 });

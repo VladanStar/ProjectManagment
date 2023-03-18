@@ -1,19 +1,31 @@
-
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './component/login/login.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { Route, RouterModule } from '@angular/router';
 
-const routes: Routes = [
+import { AboutComponent } from './about/about.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
-  {path: '', redirectTo:'file-upload', pathMatch:'full'},
-  {path: 'login', component : LoginComponent},
-  {path: 'dashboard', component : DashboardComponent},
-//  {path: 'register', component : RegisterComponent},
+const routes: Route[] = [
+  {
+    path: '',
+    component: WelcomeComponent,
+  },
+  {
+    path: 'about',
+    // component: AboutComponent,
+    loadComponent: () =>
+      import('./about/about.component').then((mod) => mod.AboutComponent),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/routes').then(
+        (mod) => mod.DASHBOARD_ROUTES
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
