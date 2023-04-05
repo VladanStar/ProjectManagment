@@ -10,9 +10,9 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit {
-  id: number;
+  id!: number;
   editMode = false;
-  recipeForm: FormGroup;
+  recipeForm!: FormGroup;
 
   get recipeControls() {
     return (this.recipeForm.get('ingredients') as FormArray).controls
